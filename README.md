@@ -100,4 +100,6 @@ CI/CD pipeline реализован через [GitHub Actions](ci-cd.yaml):
 
 ### 5. Предложить дальнейшие улучшения по Metrics Driven Development
 
-....
+[Описание](doc/adr/0001-record-architecture-decisions.md) причин для улучшения системы
+
+[Рассчет статистики](mdd_accuracy.py)
