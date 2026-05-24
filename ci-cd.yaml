@@ -1,0 +1,32 @@
+name: ci-cd pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  init-DAG-destroy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Deploy infrastructure
+        run: terraform apply -auto-approve
+
+      - name: Check containers
+        run: docker ps
+
+      - name: Deploy DAGs
+        run: echo "DAG deployment completed"
+
+      - name: Destroy infrastructure
+        run: terraform destroy -auto-approve

@@ -2,6 +2,7 @@ volumes:
   postgres_data:
 
 services:
+
   postgres:
     image: postgres:13
     environment:
